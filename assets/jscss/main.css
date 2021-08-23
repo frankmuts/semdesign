@@ -1,0 +1,176 @@
+/* kleuren
+************************************************/
+.huisstijlrood {
+  color: #ff0215;
+}
+.donkergrijs {
+  color: #7f7f7f;
+}
+.tekstkleur {
+  color: #262626;
+}
+:root {
+  --huisstijlkleur: #ff0215;
+  --donkergrijs: #7f7f7f;
+  --tekstkleur: #262626;
+}
+/* Standaard
+    ************************************************/
+a:focus {
+  outline: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  overflow-y: scroll;
+}
+a {
+  color: var(--tekstkleur);
+  text-decoration: none;
+  cursor: pointer;
+}
+a.externlink {
+  color: var(--huisstijlkleur);
+  text-decoration: underline;
+  cursor: pointer;
+}
+a.externlink::after {
+  content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==);
+  margin: 0px 3px 0px 5px;
+}
+a:hover {
+  color: #262626;
+  text-decoration: underline;
+}
+body {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 9pt;
+  letter-spacing: 0.07em;
+  text-align: left;
+  color: var(--tekstkleur);
+  background: #fff;
+}
+
+/*
+  Het grid opzetten
+**********************************/
+
+.main-head {
+  grid-area: header;
+}
+.content {
+  grid-area: content;
+  /* background-color: yellow; */
+}
+.main-nav {
+  grid-area: nav;
+  /* background-color: cadetblue; */
+}
+.smal-nav {
+  grid-area: smallnav;
+}
+.main-footer {
+  grid-area: footer;
+}
+
+.wrapper {
+  display: grid;
+  gap: 20px;
+  grid-template-areas:
+    "header"
+    "smallnav"
+    "content"
+    "footer";
+  margin: 2em;
+}
+
+.main-nav {
+  display: none;
+}
+
+@media (min-width: 700px) {
+  .wrapper {
+    grid-template-columns: 216px auto;
+    grid-template-areas:
+      "header  header"
+      "nav     content"
+      "footer  footer";
+  }
+  .wrapper {
+    width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .main-nav {
+    display: block;
+  }
+  .small-nav {
+    display: none;
+  }
+}
+
+@media (min-width: 1000px) {
+  .wrapper {
+    grid-template-columns: 216px auto;
+    grid-template-areas:
+      "header header"
+      "nav    content"
+      "footer footer";
+  }
+  .wrapper {
+    width: 990px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  nav ul {
+    flex-direction: column;
+  }
+
+  .main-nav {
+    display: block;
+  }
+  .small-nav {
+    display: none;
+  }
+}
+
+/*
+   HEADER
+**********************************/
+
+header {
+  background-image: url(../images/logo/logoSEM-NL.jpg);
+  background-position-x: 30px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 100px;
+}
+
+/*
+   FOOTER
+**********************************/
+
+footer {
+  background-color: var(--huisstijlkleur);
+  color: whitesmoke;
+  padding: 8px;
+}
+
+/*
+   MAIN
+**********************************/
+main {
+  /* font-size: 1.8vw; */
+  font-size: calc(14px + 0.1vw);
+  letter-spacing: normal;
+}
+
+img.big{
+  max-width:100%;
+  max-height:100%;
+    /* object-fit: contain; */
+  }
